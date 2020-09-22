@@ -24,23 +24,31 @@ knitr::opts_chunk$set(echo = FALSE)
  
  - Provides tools for descriptive community ecology.
  - Contain tools for diversity analysis
+ 
 ```{r class.source = "fold-hide",  eval=FALSE}
 install.packages('vegan')
 library('vegan')
 ```
 
-## Reading
 
-- Example
-Programming language needed in the workplace in 2019
+## Help
+*Ask for help for Datasets*
+```{r}
+help("datasets")
+```
+
+
+## Working directory
+```{r}
+setwd("D:/臺灣大學/海研所/R/Working directory")
+getwd()
+```
+
 
 ## Data
 
-```{r,  eval=FALSE}
-library(readxl)
-read_excel('D:/臺灣大學/海研所/R/Working directory/20200915/Programming language needed in the workplace.xlsx') 
-language<-read_excel('D:/臺灣大學/海研所/R/Working directory/20200915/Programming language needed in the workplace.xlsx')
-```
+- Example
+Programming language needed in the workplace in 2019
 
 Ranking|Language|Avg(%)
 -|-----|----
@@ -55,8 +63,16 @@ Ranking|Language|Avg(%)
 9|SAS|17.9
 10|Hive|14.7
 
+```{r}
+library(readxl)
+read_excel('D:/臺灣大學/海研所/R/Working directory/20200915/Programming language needed in the workplace.xlsx')
+language <- read_excel('D:/臺灣大學/海研所/R/Working directory/20200915/Programming language needed in the workplace.xlsx')
+```
+
+
 ## Plot
-```{r,  eval=FALSE,  tidy=TRUE}
+```{r}
 language <- read.table('D:/臺灣大學/海研所/R/Working directory/20200915/Programming language needed in the workplace.txt', header=T, sep='\t', dec='.')
 barplot(language$Avg, main="Top 10 Programming language (Hale, 2019)", horiz=TRUE, names.arg=language$Language, cex.names=0.7, las=1)
 ```
+
